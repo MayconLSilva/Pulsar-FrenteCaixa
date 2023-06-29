@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblID = new Label();
             lblNome = new Label();
             lblTelefone = new Label();
@@ -40,11 +41,14 @@
             toolStripMenuItemEditar = new ToolStripMenuItem();
             toolStripMenuItemCancelar = new ToolStripMenuItem();
             toolStripMenuItemExcluir = new ToolStripMenuItem();
-            dataGridViewClientes = new DataGridView();
             toolStripMenuItemSincronizar = new ToolStripMenuItem();
+            dataGridViewClientes = new DataGridView();
+            bindingSourceCliente = new BindingSource(components);
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceCliente).BeginInit();
             SuspendLayout();
+
             // 
             // lblID
             // 
@@ -109,54 +113,62 @@
             // 
             // toolStripMenuItemNovo
             // 
+            toolStripMenuItemNovo.Image = Properties.Resources.novo;
             toolStripMenuItemNovo.Name = "toolStripMenuItemNovo";
-            toolStripMenuItemNovo.Size = new Size(53, 20);
+            toolStripMenuItemNovo.Size = new Size(69, 20);
             toolStripMenuItemNovo.Text = "NOVO";
             toolStripMenuItemNovo.Click += toolStripMenuItemNovo_Click;
             // 
             // toolStripMenuItemGravar
             // 
+            toolStripMenuItemGravar.Image = Properties.Resources.save;
             toolStripMenuItemGravar.Name = "toolStripMenuItemGravar";
-            toolStripMenuItemGravar.Size = new Size(62, 20);
+            toolStripMenuItemGravar.Size = new Size(78, 20);
             toolStripMenuItemGravar.Text = "GRAVAR";
             toolStripMenuItemGravar.Click += toolStripMenuItemGravar_Click;
             // 
             // toolStripMenuItemEditar
             // 
+            toolStripMenuItemEditar.Image = Properties.Resources.edit;
             toolStripMenuItemEditar.Name = "toolStripMenuItemEditar";
-            toolStripMenuItemEditar.Size = new Size(56, 20);
+            toolStripMenuItemEditar.Size = new Size(72, 20);
             toolStripMenuItemEditar.Text = "EDITAR";
             toolStripMenuItemEditar.Click += toolStripMenuItemEditar_Click;
             // 
             // toolStripMenuItemCancelar
             // 
+            toolStripMenuItemCancelar.Image = Properties.Resources.cancel1;
             toolStripMenuItemCancelar.Name = "toolStripMenuItemCancelar";
-            toolStripMenuItemCancelar.Size = new Size(79, 20);
+            toolStripMenuItemCancelar.Size = new Size(95, 20);
             toolStripMenuItemCancelar.Text = "CANCELAR";
             toolStripMenuItemCancelar.Click += toolStripMenuItemCancelar_Click;
             // 
             // toolStripMenuItemExcluir
             // 
+            toolStripMenuItemExcluir.Image = Properties.Resources.delete;
             toolStripMenuItemExcluir.Name = "toolStripMenuItemExcluir";
-            toolStripMenuItemExcluir.Size = new Size(64, 20);
+            toolStripMenuItemExcluir.Size = new Size(80, 20);
             toolStripMenuItemExcluir.Text = "EXCLUIR";
             toolStripMenuItemExcluir.Click += toolStripMenuItemExcluir_Click;
             // 
+            // toolStripMenuItemSincronizar
+            // 
+            toolStripMenuItemSincronizar.Alignment = ToolStripItemAlignment.Right;
+            toolStripMenuItemSincronizar.Image = Properties.Resources.sincronizar;
+            toolStripMenuItemSincronizar.Name = "toolStripMenuItemSincronizar";
+            toolStripMenuItemSincronizar.Size = new Size(111, 20);
+            toolStripMenuItemSincronizar.Text = "SINCRONIZAR";
+            // 
             // dataGridViewClientes
             // 
+            dataGridViewClientes.AutoGenerateColumns = false;
             dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.DataSource = bindingSourceCliente;
             dataGridViewClientes.Location = new Point(5, 115);
             dataGridViewClientes.Name = "dataGridViewClientes";
             dataGridViewClientes.RowTemplate.Height = 25;
             dataGridViewClientes.Size = new Size(509, 101);
             dataGridViewClientes.TabIndex = 7;
-            // 
-            // toolStripMenuItemSincronizar
-            // 
-            toolStripMenuItemSincronizar.Alignment = ToolStripItemAlignment.Right;
-            toolStripMenuItemSincronizar.Name = "toolStripMenuItemSincronizar";
-            toolStripMenuItemSincronizar.Size = new Size(95, 20);
-            toolStripMenuItemSincronizar.Text = "SINCRONIZAR";
             // 
             // FrmCadastroDeClientes
             // 
@@ -178,6 +190,7 @@
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceCliente).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +211,6 @@
         private ToolStripMenuItem toolStripMenuItemExcluir;
         private ToolStripMenuItem toolStripMenuItemSincronizar;
         private DataGridView dataGridViewClientes;
+        private BindingSource bindingSourceCliente;
     }
 }

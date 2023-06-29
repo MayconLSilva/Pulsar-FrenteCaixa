@@ -1,3 +1,8 @@
+using Pulsar_FrenteCaixa.Dominio;
+using ServiceStack.Redis;
+using ServiceStack.Redis.Generic;
+using static ServiceStack.Diagnostics.Events;
+
 namespace Pulsar_FrenteCaixa
 {
     public partial class FrmCadastroDeClientes : Form
@@ -7,6 +12,9 @@ namespace Pulsar_FrenteCaixa
         public FrmCadastroDeClientes()
         {
             InitializeComponent();
+
+            
+
             eventosBotoes("");
         }
 
@@ -114,11 +122,13 @@ namespace Pulsar_FrenteCaixa
 
         private void toolStripMenuItemNovo_Click(object sender, EventArgs e)
         {
+            
             eventosBotoes("Novo");
+            txtNome.Focus();
         }
         private void toolStripMenuItemGravar_Click(object sender, EventArgs e)
         {
-            eventosBotoes("Gravar");
+           
         }
 
         private void toolStripMenuItemEditar_Click(object sender, EventArgs e)
