@@ -26,8 +26,10 @@ Certifique-se de ter as seguintes ferramentas e/ou técnologias instaladas em su
 ## ▶️ Como executar o projeto
 **1.** Baixa e instale a imagem do Redis em sua máquina local.
 > Utilize o seguinte comando para baixar e instalar: docker run -d -p 6379:6379 --name containerredis redis
+
 **2.** Clone este repositório para sua máquina local:
 > https://github.com/MayconLSilva/Pulsar-FrenteCaixa.git
+
 **3.** Navegue até o diretório do projeto:
 > Abra seu projeto e execute.
 
