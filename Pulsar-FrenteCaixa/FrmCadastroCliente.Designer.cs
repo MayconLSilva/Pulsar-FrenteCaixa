@@ -44,12 +44,12 @@
             toolStripMenuItemExcluir = new ToolStripMenuItem();
             toolStripMenuItemSincronizar = new ToolStripMenuItem();
             dataGridViewClientes = new DataGridView();
+            cargoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             apellidosDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dniDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
-            cargoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
@@ -98,7 +98,7 @@
             // 
             // txtNome
             // 
-            txtNome.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Nombre", true));
+            txtNome.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Nome", true));
             txtNome.Location = new Point(65, 57);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(238, 23);
@@ -185,6 +185,10 @@
             dataGridViewClientes.Size = new Size(509, 218);
             dataGridViewClientes.TabIndex = 0;
             // 
+            // cargoDataGridViewTextBoxColumn
+            // 
+            cargoDataGridViewTextBoxColumn.Name = "cargoDataGridViewTextBoxColumn";
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -193,20 +197,20 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nome";
             nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             // 
             // apellidosDataGridViewTextBoxColumn
             // 
             apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
-            apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            apellidosDataGridViewTextBoxColumn.HeaderText = "Telefone";
             apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
             // 
             // dniDataGridViewTextBoxColumn
             // 
             dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
-            dniDataGridViewTextBoxColumn.HeaderText = "Dni";
+            dniDataGridViewTextBoxColumn.HeaderText = "Idade";
             dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
             // 
             // Cargo
@@ -214,10 +218,6 @@
             Cargo.DataPropertyName = "Cargo";
             Cargo.HeaderText = "Cargo";
             Cargo.Name = "Cargo";
-            // 
-            // cargoDataGridViewTextBoxColumn
-            // 
-            cargoDataGridViewTextBoxColumn.Name = "cargoDataGridViewTextBoxColumn";
             // 
             // FrmCadastroDeClientes
             // 
@@ -264,14 +264,14 @@
         private DataGridView dataGridViewClientes;
         private BindingSource empleadoBindingSource;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Apellidos;
         private DataGridViewTextBoxColumn Dni;
-        private DataGridViewTextBoxColumn Cargo;
+        private DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Cargo;
     }
 }

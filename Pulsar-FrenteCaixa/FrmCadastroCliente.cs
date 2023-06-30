@@ -243,8 +243,8 @@ namespace Pulsar_FrenteCaixa
 
         private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) 
-            { 
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
                 e.Handled = true;
             }
             txtTelefone.Text = MLSHelp.Util.MascaraTelefoneCelular(txtTelefone.Text);
