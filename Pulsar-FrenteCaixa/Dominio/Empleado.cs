@@ -10,7 +10,7 @@ namespace Pulsar_FrenteCaixa.Dominio
     {
         public string ID { get; set; }
         public string Nome { get; set; }
-        public string Apellidos { get; set; }
+        public string Telefone { get; set; }
         public string Dni { get; set; }
         public string Cargo { get; set; }
     }

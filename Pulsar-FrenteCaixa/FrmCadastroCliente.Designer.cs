@@ -44,12 +44,12 @@
             toolStripMenuItemExcluir = new ToolStripMenuItem();
             toolStripMenuItemSincronizar = new ToolStripMenuItem();
             dataGridViewClientes = new DataGridView();
-            cargoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             apellidosDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dniDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
+            cargoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
@@ -106,7 +106,7 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Apellidos", true));
+            txtTelefone.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Telefone", true));
             txtTelefone.Location = new Point(65, 86);
             txtTelefone.MaxLength = 11;
             txtTelefone.Name = "txtTelefone";
@@ -176,48 +176,55 @@
             // 
             // dataGridViewClientes
             // 
+            dataGridViewClientes.AllowUserToAddRows = false;
             dataGridViewClientes.AutoGenerateColumns = false;
             dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewClientes.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidosDataGridViewTextBoxColumn, dniDataGridViewTextBoxColumn, Cargo });
             dataGridViewClientes.DataSource = empleadoBindingSource;
             dataGridViewClientes.Location = new Point(5, 115);
             dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.ReadOnly = true;
             dataGridViewClientes.Size = new Size(509, 218);
             dataGridViewClientes.TabIndex = 0;
-            // 
-            // cargoDataGridViewTextBoxColumn
-            // 
-            cargoDataGridViewTextBoxColumn.Name = "cargoDataGridViewTextBoxColumn";
             // 
             // iDDataGridViewTextBoxColumn
             // 
             iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             iDDataGridViewTextBoxColumn.HeaderText = "ID";
             iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             nombreDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             nombreDataGridViewTextBoxColumn.HeaderText = "Nome";
             nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidosDataGridViewTextBoxColumn
             // 
-            apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
+            apellidosDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
             apellidosDataGridViewTextBoxColumn.HeaderText = "Telefone";
             apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
+            apellidosDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dniDataGridViewTextBoxColumn
             // 
             dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
             dniDataGridViewTextBoxColumn.HeaderText = "Idade";
             dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            dniDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Cargo
             // 
             Cargo.DataPropertyName = "Cargo";
             Cargo.HeaderText = "Cargo";
             Cargo.Name = "Cargo";
+            Cargo.ReadOnly = true;
+            // 
+            // cargoDataGridViewTextBoxColumn
+            // 
+            cargoDataGridViewTextBoxColumn.Name = "cargoDataGridViewTextBoxColumn";
             // 
             // FrmCadastroDeClientes
             // 
@@ -265,7 +272,7 @@
         private BindingSource empleadoBindingSource;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn Apellidos;
+        private DataGridViewTextBoxColumn Telefone;
         private DataGridViewTextBoxColumn Dni;
         private DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
