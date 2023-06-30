@@ -33,6 +33,7 @@
             lblNome = new Label();
             lblTelefone = new Label();
             txtID = new TextBox();
+            empleadoBindingSource = new BindingSource(components);
             txtNome = new TextBox();
             txtTelefone = new TextBox();
             menuStrip = new MenuStrip();
@@ -43,12 +44,16 @@
             toolStripMenuItemExcluir = new ToolStripMenuItem();
             toolStripMenuItemSincronizar = new ToolStripMenuItem();
             dataGridViewClientes = new DataGridView();
-            bindingSourceCliente = new BindingSource(components);
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            apellidosDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dniDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Cargo = new DataGridViewTextBoxColumn();
+            cargoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).BeginInit();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSourceCliente).BeginInit();
             SuspendLayout();
-
             // 
             // lblID
             // 
@@ -79,6 +84,7 @@
             // 
             // txtID
             // 
+            txtID.DataBindings.Add(new Binding("Text", empleadoBindingSource, "ID", true));
             txtID.Location = new Point(65, 27);
             txtID.MaxLength = 25;
             txtID.Name = "txtID";
@@ -86,8 +92,13 @@
             txtID.Size = new Size(45, 23);
             txtID.TabIndex = 3;
             // 
+            // empleadoBindingSource
+            // 
+            empleadoBindingSource.DataSource = typeof(Dominio.Empleado);
+            // 
             // txtNome
             // 
+            txtNome.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Nombre", true));
             txtNome.Location = new Point(65, 57);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(238, 23);
@@ -95,10 +106,13 @@
             // 
             // txtTelefone
             // 
+            txtTelefone.DataBindings.Add(new Binding("Text", empleadoBindingSource, "Apellidos", true));
             txtTelefone.Location = new Point(65, 86);
+            txtTelefone.MaxLength = 11;
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(99, 23);
             txtTelefone.TabIndex = 5;
+            txtTelefone.KeyPress += txtTelefone_KeyPress;
             txtTelefone.Leave += txtTelefone_Leave;
             txtTelefone.Validated += txtTelefone_Validated;
             // 
@@ -158,23 +172,58 @@
             toolStripMenuItemSincronizar.Name = "toolStripMenuItemSincronizar";
             toolStripMenuItemSincronizar.Size = new Size(111, 20);
             toolStripMenuItemSincronizar.Text = "SINCRONIZAR";
+            toolStripMenuItemSincronizar.Click += toolStripMenuItemSincronizar_Click;
             // 
             // dataGridViewClientes
             // 
             dataGridViewClientes.AutoGenerateColumns = false;
             dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClientes.DataSource = bindingSourceCliente;
+            dataGridViewClientes.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidosDataGridViewTextBoxColumn, dniDataGridViewTextBoxColumn, Cargo });
+            dataGridViewClientes.DataSource = empleadoBindingSource;
             dataGridViewClientes.Location = new Point(5, 115);
             dataGridViewClientes.Name = "dataGridViewClientes";
-            dataGridViewClientes.RowTemplate.Height = 25;
-            dataGridViewClientes.Size = new Size(509, 101);
-            dataGridViewClientes.TabIndex = 7;
+            dataGridViewClientes.Size = new Size(509, 218);
+            dataGridViewClientes.TabIndex = 0;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // apellidosDataGridViewTextBoxColumn
+            // 
+            apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
+            apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
+            // 
+            // dniDataGridViewTextBoxColumn
+            // 
+            dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
+            dniDataGridViewTextBoxColumn.HeaderText = "Dni";
+            dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            // 
+            // Cargo
+            // 
+            Cargo.DataPropertyName = "Cargo";
+            Cargo.HeaderText = "Cargo";
+            Cargo.Name = "Cargo";
+            // 
+            // cargoDataGridViewTextBoxColumn
+            // 
+            cargoDataGridViewTextBoxColumn.Name = "cargoDataGridViewTextBoxColumn";
             // 
             // FrmCadastroDeClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(526, 228);
+            ClientSize = new Size(526, 345);
             Controls.Add(dataGridViewClientes);
             Controls.Add(txtTelefone);
             Controls.Add(txtNome);
@@ -183,14 +232,16 @@
             Controls.Add(lblNome);
             Controls.Add(lblID);
             Controls.Add(menuStrip);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip;
             MaximizeBox = false;
             Name = "FrmCadastroDeClientes";
             Text = "Cadastro de Clientes";
+            Load += FrmCadastroDeClientes_Load;
+            ((System.ComponentModel.ISupportInitialize)empleadoBindingSource).EndInit();
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSourceCliente).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -211,6 +262,16 @@
         private ToolStripMenuItem toolStripMenuItemExcluir;
         private ToolStripMenuItem toolStripMenuItemSincronizar;
         private DataGridView dataGridViewClientes;
-        private BindingSource bindingSourceCliente;
+        private BindingSource empleadoBindingSource;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Apellidos;
+        private DataGridViewTextBoxColumn Dni;
+        private DataGridViewTextBoxColumn Cargo;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
     }
 }
