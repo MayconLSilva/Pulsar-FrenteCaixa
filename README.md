@@ -30,6 +30,7 @@ Certifique-se de ter as seguintes ferramentas e/ou técnologias instaladas em su
 **2.** Clone este repositório para sua máquina local:
 > https://github.com/MayconLSilva/Pulsar-FrenteCaixa.git
 
+
 **3.** Navegue até o diretório do projeto:
 > Abra seu projeto e execute.
 
